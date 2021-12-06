@@ -25,7 +25,7 @@ public class BidListService {
 		return bidListRepository.findAll();
 	}
 	
-	public BidList createBidList(BidList bidList) throws Exception {
+	public BidList createBidList(BidList bidList) throws AlreadyExistException {
 		if (bidListRepository.findByAccount(bidList.getAccount()) != null) {
 			throw new AlreadyExistException("This BidList already exists");
 		}
@@ -33,11 +33,11 @@ public class BidListService {
 		return bidListRepository.save(bidList);
 	}
 	
-	public BidList updateBidList(BidList bidList, int id) throws Exception {
+	public BidList updateBidList(BidList bidList, int id) throws EntityNotFoundException {
 		if (bidListRepository.findById(id) == null) {
 			throw new EntityNotFoundException("BidList does not exists");
 		}
-		BidList updatedBidList = bidListRepository.getOne(id);
+		BidList updatedBidList = bidListRepository.getById(id);
 		updatedBidList.setAccount(bidList.getAccount());
 		updatedBidList.setType(bidList.getType());
 		updatedBidList.setBidQuantity(bidList.getBidQuantity());

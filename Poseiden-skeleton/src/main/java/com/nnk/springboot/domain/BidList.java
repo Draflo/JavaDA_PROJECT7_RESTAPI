@@ -42,6 +42,7 @@ public class BidList {
     private String type;
 
     @NotNull(message = "Bid quantity is mandatory")
+    @Min(value = 0, message = "bidQuantity must be positive")
     @Column(name = "bidQuantity")
     private Double bidQuantity;
 
