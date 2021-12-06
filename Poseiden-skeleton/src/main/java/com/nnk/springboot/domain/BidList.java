@@ -16,12 +16,14 @@ import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "bidlist")
 @NoArgsConstructor
+@ToString
 public class BidList {
 	
 	public BidList(String account, String type, Double bidQuantity) {
