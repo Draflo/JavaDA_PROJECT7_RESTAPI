@@ -88,7 +88,7 @@ class BidListControllerTests {
 				.andExpect(status().isOk())
 				.andExpect(view().name("bidList/add"))
 				.andExpect(model().hasErrors())
-				.andExpect(model().attributeHasFieldErrorCode("bidList", "account", "NotEmpty"));
+				.andExpect(model().attributeHasFieldErrorCode("bidList", "account", "NotBlank"));
 	}
 
 	@Test

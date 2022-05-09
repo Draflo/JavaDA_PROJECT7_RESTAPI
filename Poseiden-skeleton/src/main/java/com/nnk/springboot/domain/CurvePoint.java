@@ -41,10 +41,12 @@ public class CurvePoint {
 	private Timestamp asOfDate​; 
 	
 	@NotNull
+	@Column(name = "term")
 	@Min(value = 0, message = "term must be positive")
 	private Double term​;
 	
 	@NotNull
+	@Column(name = "value")
 	@Min(value = 0, message = "term must be positive")
 	private Double value​;
 	
